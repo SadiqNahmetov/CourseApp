@@ -35,26 +35,35 @@ namespace Repository.Repositories
 
         }
 
-        public List<Student> GetAll(Predicate<Student> predicate)
-        {
-            return predicate != null ? AppDbContext<Student>.datas.FindAll(predicate) : AppDbContext<Student>.datas;
-        }
-
+        
         public void Update(Student data)
         {
-            Student student= Get(m => m.Id == data.Id);
+            Student student = Get(m => m.Id == data.Id);
             if (!string.IsNullOrEmpty(data.Name))
-               student.Name = data.Name;
+                student.Name = data.Name;
 
             if (!string.IsNullOrEmpty(data.Surname))
                 student.Surname = data.Surname;
 
-             if (data.Age != null )
-                  student.Age = data.Age;
+            if (data.Age != null)
+                student.Age = data.Age;
 
 
 
 
         }
-    }
+
+       
+
+        public List<Student> GetAll(Predicate<Student> predicate)
+        {
+            return predicate != null ? AppDbContext<Student>.datas.FindAll(predicate) : AppDbContext<Student>.datas;
+
+        }
+
+        public List<Student> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+    }  
 }

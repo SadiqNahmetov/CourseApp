@@ -31,81 +31,74 @@ namespace CourseApplication
                     switch (selectTrueOption)
                     {
                         case (int)Menues.CreateGroup:
-
-                            groupController.Create();
+                             groupController.Create();
                             break;
 
                         case (int)Menues.GetGroupById:
-
-                            groupController.GetById();
+                             groupController.GetById();
                             break;
 
 
                         case (int)Menues.UpdateGroup:
-
                             groupController.Update();
                             break;
 
 
                         case (int)Menues.DeleteGroup:
-
-                            groupController.Delete();
+                             groupController.Delete();
                             break;
 
                         case (int)Menues.GetAllGroups:
-
-                            groupController.GetAll();
+                             groupController.GetAll();
                             break;
 
                         case (int)Menues.SearchForGroupsByTeacherName:
-                            
-                            groupController.SearchByTeacherName();
+                             groupController.SearchByTeacherName();
                             break;
 
                         case (int)Menues.GetAllGroupsByRoom:
-
                              groupController.GetAllByRoom();
                              break;
 
                         case (int)Menues.SearchMethodForGroupsByName:
-
-                            groupController.SearchByName();
+                             groupController.SearchByName();
                              break;
 
                            
                             // Students 
 
                         case (int)Menues.CreateStudent:
-
-                           studentController.Create();
+                            studentController.Create();
                             break;
 
                         case (int)Menues.UpdateStudent:
-
-                            studentController.Update();
+                             studentController.Update();
                             break;
 
                         case (int)Menues.GetStudentById:
-
                             studentController.GetById();
                             break;
 
                         case (int)Menues.DeleteStudent:
-
                             studentController.Delete();
                             break;
 
 
                         case (int)Menues.GetStudentsByAge:
-
                             studentController.GetStudentsByAge();
+                            break;
+
+                        case (int)Menues.GetAllStudentsByGrupId:
+                            studentController.GetAllStudentByGrupId();
                             break;
 
 
                         case (int)Menues.SearchStudentsByNameOrSurname:
-
-                            studentController.Search();
+                             studentController.Search();
                             break;
+
+
+                        
                         default:
                             Helper.WriteConsole(ConsoleColor.Red, "Select correct option number: ");
                             break;

@@ -32,12 +32,12 @@ namespace Service.Services
 
         public Student Update(int id, Student student)
         {
-             Student dbGroup = GetById(id);
-             if (dbGroup is null) return null;
-             student.Id = dbGroup.Id;
+             Student dbStudent = GetById(id);
+             if (dbStudent is null) return null;
+             student.Id = dbStudent.Id;
 
              _studentRepository.Update(student);
-            return dbGroup;
+            return dbStudent;
         }
 
         public Student GetById(int id)
@@ -56,6 +56,12 @@ namespace Service.Services
             Console.WriteLine(student.Name + " -- " + "Deleted group");
         }
 
+        public List<Student> GetAll()
+        {
+            return _studentRepository.GetAll();
+
+        }
+
         public List<Student> GetStudentsByAge(int age)
         {
             return _studentRepository.GetAll(m => m.Age == age);
@@ -66,10 +72,17 @@ namespace Service.Services
             return _studentRepository.GetAll(m => m.Name.Trim().ToLower().StartsWith(search.ToLower().Trim()) || m.Surname.Trim().ToLower().StartsWith(search.ToLower().Trim()));
         }
 
-        
+        public List<Student> GetAllStudentByGrupId(int id)
+        {
+            var datas = _studentRepository.GetAll(m => m.Group.Id == id);
+            return datas;
+        }
 
-  
 
-        
+
+
+
+
+
     }
 }
