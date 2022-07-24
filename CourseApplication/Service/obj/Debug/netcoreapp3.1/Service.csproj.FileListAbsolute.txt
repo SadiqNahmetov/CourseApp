@@ -1,0 +1,15 @@
+C:\Users\Sadiq\Desktop\CnProject\CourseApplication\CourseApplication\Service\bin\Debug\netcoreapp3.1\Service.deps.json
+C:\Users\Sadiq\Desktop\CnProject\CourseApplication\CourseApplication\Service\bin\Debug\netcoreapp3.1\Service.dll
+C:\Users\Sadiq\Desktop\CnProject\CourseApplication\CourseApplication\Service\bin\Debug\netcoreapp3.1\Service.pdb
+C:\Users\Sadiq\Desktop\CnProject\CourseApplication\CourseApplication\Service\bin\Debug\netcoreapp3.1\Domain.dll
+C:\Users\Sadiq\Desktop\CnProject\CourseApplication\CourseApplication\Service\bin\Debug\netcoreapp3.1\Repository.dll
+C:\Users\Sadiq\Desktop\CnProject\CourseApplication\CourseApplication\Service\bin\Debug\netcoreapp3.1\Repository.pdb
+C:\Users\Sadiq\Desktop\CnProject\CourseApplication\CourseApplication\Service\bin\Debug\netcoreapp3.1\Domain.pdb
+C:\Users\Sadiq\Desktop\CnProject\CourseApplication\CourseApplication\Service\obj\Debug\netcoreapp3.1\Service.csproj.AssemblyReference.cache
+C:\Users\Sadiq\Desktop\CnProject\CourseApplication\CourseApplication\Service\obj\Debug\netcoreapp3.1\Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sadiq\Desktop\CnProject\CourseApplication\CourseApplication\Service\obj\Debug\netcoreapp3.1\Service.AssemblyInfoInputs.cache
+C:\Users\Sadiq\Desktop\CnProject\CourseApplication\CourseApplication\Service\obj\Debug\netcoreapp3.1\Service.AssemblyInfo.cs
+C:\Users\Sadiq\Desktop\CnProject\CourseApplication\CourseApplication\Service\obj\Debug\netcoreapp3.1\Service.csproj.CoreCompileInputs.cache
+C:\Users\Sadiq\Desktop\CnProject\CourseApplication\CourseApplication\Service\obj\Debug\netcoreapp3.1\Service.csproj.CopyComplete
+C:\Users\Sadiq\Desktop\CnProject\CourseApplication\CourseApplication\Service\obj\Debug\netcoreapp3.1\Service.dll
+C:\Users\Sadiq\Desktop\CnProject\CourseApplication\CourseApplication\Service\obj\Debug\netcoreapp3.1\Service.pdb
