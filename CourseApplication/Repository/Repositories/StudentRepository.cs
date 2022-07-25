@@ -35,7 +35,11 @@ namespace Repository.Repositories
 
         }
 
-        
+        public List<Student> GetAll(Predicate<Student> predicate = null)
+        {
+            return predicate != null ? AppDbContext<Student>.datas.FindAll(predicate) : AppDbContext<Student>.datas;
+        }
+
         public void Update(Student data)
         {
             Student student = Get(m => m.Id == data.Id);
@@ -55,15 +59,6 @@ namespace Repository.Repositories
 
        
 
-        public List<Student> GetAll(Predicate<Student> predicate)
-        {
-            return predicate != null ? AppDbContext<Student>.datas.FindAll(predicate) : AppDbContext<Student>.datas;
-
-        }
-
-        public List<Student> GetAll()
-        {
-            throw new NotImplementedException();
-        }
+       
     }  
 }

@@ -249,12 +249,8 @@ namespace CourseApplication.Controllers
             if (isGroupId)
             {
                 Helper.WriteConsole(ConsoleColor.Blue, "Add group  new name: ");
-            GrName : string groupNewName = Console.ReadLine();
-                if (string.IsNullOrWhiteSpace(groupNewName))
-                {
-                    Helper.WriteConsole(ConsoleColor.Red, "Group name cant be empty: ");
-                    goto GrName;
-                }
+                string groupNewName = Console.ReadLine();
+                
 
                 Helper.WriteConsole(ConsoleColor.Blue, "Add group new teacher name: ");
                  NewTeacName : string groupNewTeacherName = Console.ReadLine();
@@ -265,11 +261,7 @@ namespace CourseApplication.Controllers
                         Helper.WriteConsole(ConsoleColor.Red, "Teacher name is not correct: ");
                         goto NewTeacName;
                       }
-                       else if (string.IsNullOrWhiteSpace(groupNewTeacherName))
-                       {
-                        Helper.WriteConsole(ConsoleColor.Red, "Teacher name cant be empty: ");
-                        goto NewTeacName;
-                       }
+                       
 
 
                 }
@@ -290,11 +282,7 @@ namespace CourseApplication.Controllers
                     Helper.WriteConsole(ConsoleColor.Red, "Group not found, please try again:");
                     goto RmName;
                 }
-                else if (string.IsNullOrWhiteSpace(groupNewRoomName))
-                {
-                    Helper.WriteConsole(ConsoleColor.Red, "Room name cant be empty: ");
-                    goto RmName;
-                }
+                
                 else
                 {
                     Helper.WriteConsole(ConsoleColor.Green, $"Group id : {resultGroup.Id}, Group name : {resultGroup.Name}, Teacher name : {resultGroup.Teacher}, Room name : {resultGroup.Room}");

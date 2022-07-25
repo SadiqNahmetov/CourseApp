@@ -14,8 +14,14 @@ namespace CourseApplication.Controllers
         public void Create()
         {
             Helper.WriteConsole(ConsoleColor.Blue, "Add group id: ");
-        GroupId: string groupId = Console.ReadLine();
+            GroupId: string groupId = Console.ReadLine();
             int selectedGroupId;
+
+            if (string.IsNullOrWhiteSpace(groupId))
+            {
+                Helper.WriteConsole(ConsoleColor.Red, "Id cant be empty: ");
+                goto GroupId;
+            }
 
             bool isSelectedId = int.TryParse(groupId, out selectedGroupId);
 
@@ -119,13 +125,14 @@ namespace CourseApplication.Controllers
         public void Update()
         {
             Helper.WriteConsole(ConsoleColor.Blue, "Add student id: ");
-             StudentId: string updateStudentId = Console.ReadLine();
-
+        StudentId: string updateStudentId = Console.ReadLine();
             if (string.IsNullOrWhiteSpace(updateStudentId))
             {
                 Helper.WriteConsole(ConsoleColor.Red, "Id cant be empty: ");
                 goto StudentId;
             }
+
+
 
             int studentId;
 
@@ -134,16 +141,11 @@ namespace CourseApplication.Controllers
             if (isStudentId)
             {
                 Helper.WriteConsole(ConsoleColor.Blue, "Add student new name: ");
-                NewStudentName: string studentNewName = Console.ReadLine();
+            NewStudentName: string studentNewName = Console.ReadLine();
 
-                if (string.IsNullOrWhiteSpace(studentNewName))
-                {
-                    Helper.WriteConsole(ConsoleColor.Red, "Student name cant be empty: ");
-                    goto NewStudentName;
-                }
 
                 Helper.WriteConsole(ConsoleColor.Blue, "Add student new surname: ");
-              NewStudentSurname: string studentNewsurname = Console.ReadLine();
+            NewStudentSurname: string studentNewsurname = Console.ReadLine();
                 for (int i = 0; i <= 9; i++)
                 {
                     if (studentNewName.Contains(i.ToString()))
@@ -151,16 +153,12 @@ namespace CourseApplication.Controllers
                         Helper.WriteConsole(ConsoleColor.Red, "Student name is not correct: ");
                         goto NewStudentName;
                     }
-                   else if (string.IsNullOrWhiteSpace(studentNewsurname))
-                    {
-                        Helper.WriteConsole(ConsoleColor.Red, "Student surname cant be empty: ");
-                        goto NewStudentSurname;
-                    }
+
 
 
 
                 }
-                     for (int i = 0; i <= 9; i++)
+                for (int i = 0; i <= 9; i++)
                 {
                     if (studentNewsurname.Contains(i.ToString()))
                     {
@@ -169,39 +167,51 @@ namespace CourseApplication.Controllers
                     }
 
                 }
-                   Helper.WriteConsole(ConsoleColor.Blue, "Add student new age: ");
-                   StNewAge: string studentNewAge = Console.ReadLine();
 
-                int age;
-                bool isAge = int.TryParse(studentNewAge, out age);
+                Helper.WriteConsole(ConsoleColor.Blue, "Add student new age: ");
+            StNewAge: string studentNewAge = Console.ReadLine();
 
-                Student student = new Student()
+                int ageCount;
+                bool isAge = int.TryParse(studentNewAge, out ageCount);
+              
+                if (isAge || studentNewAge == "")
                 {
-                    Name = studentNewName,
-                    Surname = studentNewsurname,
-                    Age = age
-                };
+                    bool isAgeEmpty = string.IsNullOrEmpty(studentNewAge);
 
-                var resultStudent = studentService.Update(studentId, student);
+                    int? count = null;
 
-                if (resultStudent == null)
-                {
-                    Helper.WriteConsole(ConsoleColor.Red, "Age have to number:");
-                    goto StNewAge;
+                    if (isAgeEmpty)
+                    {
+                        count = null;
+                    }
+                    else
+                    {
+                        count = ageCount;
+                    }
+                    Student student = new Student()
+                    {
+                        Name = studentNewName,
+                        Surname = studentNewsurname,
+                        Age = count
+                    };
+
+                    var resultStudent = studentService.Update(studentId, student);
+
+                    if (resultStudent == null)
+                    {
+                        
+                        Helper.WriteConsole(ConsoleColor.Red, "Age have to number:");
+                        goto StNewAge;
+                    }
+
+                    else
+                    {
+                        Helper.WriteConsole(ConsoleColor.Cyan, "updated student:");
+                        Helper.WriteConsole(ConsoleColor.Green, $"Studen id : {resultStudent.Id}, Student name : {resultStudent.Name},  Surname : {resultStudent.Surname},  Student age : {resultStudent.Age}");
+
+                    }
 
                 }
-                else if (string.IsNullOrWhiteSpace(studentNewAge))
-                {
-                    Helper.WriteConsole(ConsoleColor.Red, "Student age cant be empty: ");
-                    goto StNewAge;
-                }
-                else
-                {
-
-                    Helper.WriteConsole(ConsoleColor.Green, $"Studen id : {resultStudent.Id}, Student name : {resultStudent.Name},  Surname : {resultStudent.Surname},  Student age : {resultStudent.Age}");
-                }
-
-                
 
             }
             else
@@ -209,9 +219,9 @@ namespace CourseApplication.Controllers
                 Helper.WriteConsole(ConsoleColor.Red, " Student not found, please try again:");
                 goto StudentId;
             }
-
+                   
+                     
         }
-
 
         public void GetById()
         {
@@ -250,7 +260,6 @@ namespace CourseApplication.Controllers
 
 
         }
-
 
         public void Delete()
         {
@@ -343,16 +352,7 @@ namespace CourseApplication.Controllers
             }
         }
 
-        public void GetAll()
-        {
-            List<Student> students = studentService.GetAll();
-
-            foreach (var item in students)
-            {
-                Helper.WriteConsole(ConsoleColor.Green, $"Studen id : {item.Id}, Student name : {item.Name},  Surname : {item.Surname},  Student age : {item.Age}");
-            }
-        }
-
+        
         public void GetAllStudentByGrupId()
         {
             Helper.WriteConsole(ConsoleColor.Blue, "Add group id :");

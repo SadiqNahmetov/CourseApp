@@ -35,9 +35,8 @@ namespace Service.Services
              Student dbStudent = GetById(id);
              if (dbStudent is null) return null;
              student.Id = dbStudent.Id;
-
              _studentRepository.Update(student);
-            return dbStudent;
+             return dbStudent;
         }
 
         public Student GetById(int id)
@@ -56,12 +55,7 @@ namespace Service.Services
             Console.WriteLine(student.Name + " -- " + "Deleted group");
         }
 
-        public List<Student> GetAll()
-        {
-            return _studentRepository.GetAll();
-
-        }
-
+       
         public List<Student> GetStudentsByAge(int age)
         {
             return _studentRepository.GetAll(m => m.Age == age);
@@ -78,11 +72,9 @@ namespace Service.Services
             return datas;
         }
 
-
-
-
-
-
-
+        public List<Student> GetAll()
+        {
+            return _studentRepository.GetAll();
+        }
     }
 }
